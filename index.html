@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Hex Color Code</title>
+  
+  <style type="text/css" media="all">
+  *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+h3{
+  font-size: 25px;
+  color: white;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  background: #58629F;
+  border: 1px solid ;
+  margin-top: 50px;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #fff;
+  box-shadow: 2px 5px 5px black;
+}
+  </style>
+</head>
+<body>
+	<h3>Hex Code : #<span id="hexCode">737381</span></h3>
+	<div class="btn">Generate</div>
+</body>
+<script type="text/javascript" charset="utf-8">
+  document.addEventListener("DOMContentLoaded",init,false);
+
+function init(){
+  const btn = document.querySelector('.btn');
+  btn.addEventListener("click", changeColor);
+  changeColor();
+}
+
+function changeColor(){
+  const charList = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+  const span = document.querySelector('#hexCode');
+  
+  let hexCode= '';
+  for (let i = 0; i < 6; i++) {
+    let random = Math.floor(Math.random()*16);
+    hexCode += charList[random]
+  }
+  document.body.style.background = `#${hexCode}`
+  span.innerHTML = hexCode;
+}
+</script>
+</html>
